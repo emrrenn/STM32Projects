@@ -116,9 +116,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
+	GPIOB->ODR |= (1<<12);
 	HAL_Delay(500);
-	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
+	GPIOB->ODR &= ~(1<<12);
 	HAL_Delay(500);
 
     MX_USB_HOST_Process();
